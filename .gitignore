@@ -1,0 +1,15 @@
+.idea
+.idea/*
+node_modules
+node_modules/*
+package-lock.json
+phys.iml
+*.iml
+target
+target/*
+frontend/timesheet/ext-6.2.0/*
+frontend/timesheet/ext62/*
+frontend/timesheet/.sencha/*
+frontend/timesheet/build/*
+frontend/timesheet/ext/*
+frontend/timesheet/ext
