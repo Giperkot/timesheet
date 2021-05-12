@@ -12,15 +12,37 @@ public class TimesheetEntity {
     private Timestamp workDate;
     private String taskNum;
     private String taskDescription;
+    private Long employeId;
+    private Long projectId;
+    private long timeWasted;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Column(name = "employe_id")
+    public Long getEmployeId() {
+        return employeId;
+    }
+
+    public void setEmployeId(Long employeId) {
+        this.employeId = employeId;
+    }
+
+    @Column(name = "project_id")
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     @Basic
@@ -61,6 +83,15 @@ public class TimesheetEntity {
 
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
+    }
+
+    @Column(name = "time_wasted")
+    public long getTimeWasted() {
+        return timeWasted;
+    }
+
+    public void setTimeWasted(long timeWasted) {
+        this.timeWasted = timeWasted;
     }
 
     @Override

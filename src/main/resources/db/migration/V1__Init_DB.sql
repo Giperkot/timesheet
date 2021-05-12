@@ -38,10 +38,12 @@ create or replace view v_timesheet_info as (
     select
         t.id,
         t.create_time,
+        e.id as employe_id,
         e.last_name,
         e.first_name,
         e.middle_name,
         e.position,
+        p.id as project_id,
         p.name as project_name,
         t.work_date,
         t.task_num,
@@ -51,3 +53,7 @@ create or replace view v_timesheet_info as (
         join employe e on t.employe_id = e.id
         join project p on t.project_id = p.id
 );
+
+/*select nextval('public.timesheet_id_seq') as the_val from generate_series(1, 1000);
+select nextval('public.employe_id_seq') as the_val from generate_series(1, 1000);
+select nextval('public.project_id_seq') as the_val from generate_series(1, 1000);*/

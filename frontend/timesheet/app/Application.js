@@ -8,6 +8,11 @@ Ext.define('Timesheet.Application', {
 
     name: 'Timesheet',
 
+    stores: [
+        "Timesheet.store.EmployeStore",
+        "Timesheet.store.ProjectStore"
+    ],
+
     quickTips: false,
     platformConfig: {
         desktop: {

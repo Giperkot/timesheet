@@ -9,10 +9,12 @@ import java.util.Objects;
 public class VTimesheetInfoEntity {
     private Long id;
     private Timestamp createTime;
+    private Long employeId;
     private String lastName;
     private String firstName;
     private String middleName;
     private String position;
+    private Long projectId;
     private String projectName;
     private Timestamp workDate;
     private String taskNum;
@@ -35,6 +37,24 @@ public class VTimesheetInfoEntity {
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Column(name = "employe_id")
+    public Long getEmployeId() {
+        return employeId;
+    }
+
+    public void setEmployeId(Long employeId) {
+        this.employeId = employeId;
+    }
+
+    @Column(name = "project_id")
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     @Basic

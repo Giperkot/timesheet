@@ -1,34 +1,42 @@
 package timesheet.dto.timesheet;
 
 import timesheet.dao.entity.VTimesheetInfoEntity;
+import timesheet.utils.ProjectConst;
 
-import java.sql.Timestamp;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TimesheetInfoDto {
 
     private Long id;
+    private Long employeId;
     private String lastName;
     private String firstName;
     private String middleName;
     private String position;
+    private Long projectId;
     private String projectName;
     private Date workDate;
     private String taskNum;
     private String taskDescription;
-    private long timeWasted;
+    private BigDecimal timeWasted;
+
+    public TimesheetInfoDto() {
+    }
 
     public TimesheetInfoDto(VTimesheetInfoEntity entity) {
         this.id = entity.getId();
+        this.projectId = entity.getProjectId();
         this.lastName = entity.getLastName();
         this.firstName = entity.getFirstName();
         this.middleName = entity.getMiddleName();
+        this.employeId = entity.getEmployeId();
         this.position = entity.getPosition();
         this.projectName = entity.getProjectName();
         this.workDate = entity.getWorkDate();
         this.taskNum = entity.getTaskNum();
         this.taskDescription = entity.getTaskDescription();
-        this.timeWasted = entity.getTimeWasted();
+        this.timeWasted = BigDecimal.valueOf(entity.getTimeWasted()).divide(ProjectConst.MINUTES_IN_HOUR);
     }
 
     public Long getId() {
@@ -37,6 +45,22 @@ public class TimesheetInfoDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getEmployeId() {
+        return employeId;
+    }
+
+    public void setEmployeId(Long employeId) {
+        this.employeId = employeId;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     public String getLastName() {
@@ -103,11 +127,11 @@ public class TimesheetInfoDto {
         this.taskDescription = taskDescription;
     }
 
-    public long getTimeWasted() {
+    public BigDecimal getTimeWasted() {
         return timeWasted;
     }
 
-    public void setTimeWasted(long timeWasted) {
+    public void setTimeWasted(BigDecimal timeWasted) {
         this.timeWasted = timeWasted;
     }
 }

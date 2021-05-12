@@ -1,10 +1,13 @@
 package timesheet.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import timesheet.dto.FilterDto;
+import timesheet.dto.timesheet.FilterReportDto;
+import timesheet.dto.timesheet.ReportDto;
 import timesheet.dto.timesheet.TimesheetInfoDto;
 import timesheet.service.TimesheetService;
 
@@ -22,28 +25,28 @@ public class TimesheetController {
     }
 
     @RequestMapping(value = "getAll", method = RequestMethod.POST)
-    public List<TimesheetInfoDto> getTimesheetList() {
-        return timesheetService.getTimesheetList();
+    public List<TimesheetInfoDto> getTimesheetList(@RequestBody FilterDto filterDto) {
+        return timesheetService.getTimesheetList(filterDto);
     }
 
-    /*@RequestMapping(value = "getCommonReport", method = RequestMethod.POST)
-    public List<TimesheetInfoDto> getCommonReport() {
-        return timesheetService.getCommonReport();
+    @RequestMapping(value = "getCommonReport", method = RequestMethod.POST)
+    public List<ReportDto> getCommonReport(@RequestBody FilterReportDto filter) {
+        return timesheetService.getCommonReport(filter);
     }
 
-    @RequestMapping(value = "getTimesheet", method = RequestMethod.GET)
+    /*@RequestMapping(value = "getTimesheet", method = RequestMethod.GET)
     public TimesheetInfoDto getTimesheet(@RequestParam Long id) {
         return timesheetService.getTimesheet();
-    }
+    }*/
 
     @RequestMapping(value = "createTimesheet", method = RequestMethod.POST)
-    public TimesheetInfoDto createTimesheet(TimesheetDto timesheetDto) {
-        return timesheetService.createTimesheet();
+    public TimesheetInfoDto createTimesheet(@RequestBody TimesheetInfoDto timesheetDto) {
+        return timesheetService.createTimesheet(timesheetDto);
     }
 
-    @RequestMapping(value = "createTimesheet", method = RequestMethod.PUT)
-    public TimesheetInfoDto updateTimesheet(TimesheetDto timesheetDto) {
-        return timesheetService.createTimesheet();
-    }*/
+    @RequestMapping(value = "updateTimesheet", method = RequestMethod.PUT)
+    public TimesheetInfoDto updateTimesheet(@RequestBody TimesheetInfoDto timesheetDto) {
+        return timesheetService.createTimesheet(timesheetDto);
+    }
 
 }
