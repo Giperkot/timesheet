@@ -76,7 +76,7 @@ Ext.define('Timesheet.view.menu.Menu', {
     tabBarPosition: 'left',*/
 
     items: [{
-        title: 'Табеля',
+        title: 'Табели',
         iconCls: 'fa fa-home',
         layout: 'fit',
         items: [{
@@ -91,8 +91,13 @@ Ext.define('Timesheet.view.menu.Menu', {
     }, {
         title: 'Отчет по списанному времени',
         iconCls: 'fa fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'report-grid',
+            minHeight: 500,
+            width: '100%',
+            bind: {
+                store: "{projectReportStore}"
+            }
+        }]
     }]
 });

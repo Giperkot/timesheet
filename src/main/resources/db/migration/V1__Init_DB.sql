@@ -1,10 +1,4 @@
 
-CREATE DATABASE timesheet
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1;
-
 
 create table if not exists employe (
     id bigserial NOT NULL primary key ,
@@ -54,6 +48,3 @@ create or replace view v_timesheet_info as (
         join project p on t.project_id = p.id
 );
 
-/*select nextval('public.timesheet_id_seq') as the_val from generate_series(1, 1000);
-select nextval('public.employe_id_seq') as the_val from generate_series(1, 1000);
-select nextval('public.project_id_seq') as the_val from generate_series(1, 1000);*/

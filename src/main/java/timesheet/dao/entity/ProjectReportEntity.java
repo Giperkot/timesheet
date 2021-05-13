@@ -13,6 +13,8 @@ public class ProjectReportEntity {
 
     private Long employeCount;
 
+    private String projectName;
+
     @Id
     @Column(name = "project_id")
     public Long getProjectId() {
@@ -32,7 +34,7 @@ public class ProjectReportEntity {
         this.sumTimeWasted = sumTimeWasted;
     }
 
-    @Column(name = "employe_cout")
+    @Column(name = "employe_count")
     public Long getEmployeCount() {
         return employeCount;
     }
@@ -41,4 +43,12 @@ public class ProjectReportEntity {
         this.employeCount = employeCount;
     }
 
+    @Column(name = "project_name")
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
 }

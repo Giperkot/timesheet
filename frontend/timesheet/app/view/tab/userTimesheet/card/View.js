@@ -37,7 +37,7 @@ Ext.define('Timesheet.view.tab.userTimesheet.card.View', {
                         store: '{employeStore}'
                     },
                     listeners: {
-                        // change: 'onChangeEmploye'
+                        change: 'onChangeEmploye'
                     }
                 },
                 {

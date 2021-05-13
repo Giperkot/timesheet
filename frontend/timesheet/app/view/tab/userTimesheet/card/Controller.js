@@ -4,10 +4,15 @@ Ext.define('Timesheet.view.tab.userTimesheet.card.Controller', {
     alias: 'controller.timesheet-card-controller',
 
     onChangeEmploye: function (_this, id, value) {
-        console.log(arguments);
         let vm = this.getViewModel();
 
-        let record = vm.getStore("employeStore").getById(id);
+        let employeStore = Ext.getStore("employeStore");
+
+        if (!employeStore) {
+            return;
+        }
+
+        let record = employeStore.getById(id);
 
         if (record) {
             vm.set("item.position", record.get("position"));

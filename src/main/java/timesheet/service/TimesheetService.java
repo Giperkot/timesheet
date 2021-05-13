@@ -1,6 +1,5 @@
 package timesheet.service;
 
-import exceptions.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import timesheet.dto.FilterDto;
 import timesheet.dto.timesheet.FilterReportDto;
 import timesheet.dto.timesheet.ReportDto;
 import timesheet.dto.timesheet.TimesheetInfoDto;
+import timesheet.exceptions.UserException;
 import timesheet.utils.ProjectConst;
 
 import java.math.MathContext;
@@ -46,7 +46,6 @@ public class TimesheetService {
         this.projectReportRepository = projectReportRepository;
     }
 
-    // todo Добавить пагинацию
     public List<TimesheetInfoDto> getTimesheetList(FilterDto filterDto) {
 
         List<VTimesheetInfoEntity> timesheetInfoEntityList;

@@ -1,19 +1,25 @@
 package timesheet.dto.timesheet;
 
 import timesheet.dao.entity.ProjectReportEntity;
+import timesheet.utils.ProjectConst;
+
+import java.math.BigDecimal;
 
 public class ReportDto {
 
     private Long projectId;
 
-    private Long sumTimeWasted;
+    private BigDecimal sumTimeWasted;
 
     private Long employeCount;
 
+    private String projectName;
+
     public ReportDto(ProjectReportEntity entity) {
         this.projectId = entity.getProjectId();
-        this.sumTimeWasted = entity.getSumTimeWasted();
+        this.sumTimeWasted = BigDecimal.valueOf(entity.getSumTimeWasted()).divide(ProjectConst.MINUTES_IN_HOUR);
         this.employeCount = entity.getEmployeCount();
+        this.projectName = entity.getProjectName();
     }
 
     public Long getProjectId() {
@@ -24,11 +30,11 @@ public class ReportDto {
         this.projectId = projectId;
     }
 
-    public Long getSumTimeWasted() {
+    public BigDecimal getSumTimeWasted() {
         return sumTimeWasted;
     }
 
-    public void setSumTimeWasted(Long sumTimeWasted) {
+    public void setSumTimeWasted(BigDecimal sumTimeWasted) {
         this.sumTimeWasted = sumTimeWasted;
     }
 
@@ -38,5 +44,13 @@ public class ReportDto {
 
     public void setEmployeCount(Long employeCount) {
         this.employeCount = employeCount;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 }

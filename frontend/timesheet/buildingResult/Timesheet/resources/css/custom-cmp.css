@@ -1,0 +1,28 @@
+
+.x-tab.x-tab-rotate-left .x-close-icon-el {
+    right: 0;
+    top: 6px;
+    left: auto;
+}
+.header {
+    font-size: 17px;
+    font-weight: bold;
+}
+.min_width_411 {
+    min-width: 411px;
+}
+.x-tab-close-btn:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url("../images/cross.png") center center no-repeat;
+    background-size: 80%;
+}
+.x-tab-navigation .x-tab-close-btn {
+    top: 27px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+    font: 12px/1 'Font Awesome 5 Free';
+    color: #fff;
+}

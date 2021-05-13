@@ -20,8 +20,7 @@ Ext.define('Timesheet.view.tab.userTimesheet.Controller', {
             items: [
                 {
                     xtype: 'timesheet-card-view',
-                    // itemId: record.get("id"),
-                    // gridController: this
+                    gridController: this
                 }
             ]
         });
